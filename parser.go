@@ -80,7 +80,7 @@ func openPort() io.ReadWriteCloser {
   // Set up options.
   // 115200bps, 8 bit data, no parity, 1 bit stop, no data stream control.
   options := serial.OpenOptions{
-    PortName:        "/dev/ttyUSB2",
+    PortName:        "/dev/ttyUSB3",
     BaudRate:        115200,
     DataBits:        8,
     StopBits:        1,
