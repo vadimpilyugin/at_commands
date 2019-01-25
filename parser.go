@@ -48,8 +48,16 @@ type CommandResponse struct {
 
 var Commands chan []byte
 var Responses chan *CommandResponse
+var connected bool
 
 func init() {
+  connected = false
+}
+
+func ConnectToPort() {
+  if connected {
+    return
+  }
   ch := make(chan []byte)
   Responses = make(chan *CommandResponse)
   Commands = make(chan []byte)
@@ -65,7 +73,7 @@ func init() {
     go portWriter(Commands, port)
   }
   go commandParser(ch, Responses)
-
+  connected = true
 }
 
 func openPort() io.ReadWriteCloser {
