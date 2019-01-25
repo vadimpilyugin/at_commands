@@ -2,7 +2,7 @@ package at_commands
 
 import (
   "github.com/jacobsa/go-serial/serial"
-  "github.com/vadimpilyugin/debug_print_go"
+  "debug_print_go"
   "io"
   "os"
   "fmt"
